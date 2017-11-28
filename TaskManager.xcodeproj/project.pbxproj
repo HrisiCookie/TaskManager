@@ -15,6 +15,7 @@
 		769290711FCCCABB00FC585C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769290701FCCCABB00FC585C /* MainViewController.swift */; };
 		769290741FCCDC1200FC585C /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769290721FCCDC1200FC585C /* TaskCell.swift */; };
 		769290751FCCDC1200FC585C /* TaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 769290731FCCDC1200FC585C /* TaskCell.xib */; };
+		76A06AFD1FCD988E002BF43A /* AddNewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A06AFC1FCD988E002BF43A /* AddNewTaskViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		769290701FCCCABB00FC585C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		769290721FCCDC1200FC585C /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		769290731FCCDC1200FC585C /* TaskCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskCell.xib; sourceTree = "<group>"; };
+		76A06AFC1FCD988E002BF43A /* AddNewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTaskViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				769290701FCCCABB00FC585C /* MainViewController.swift */,
+				76A06AFC1FCD988E002BF43A /* AddNewTaskViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 				769290741FCCDC1200FC585C /* TaskCell.swift in Sources */,
 				769290711FCCCABB00FC585C /* MainViewController.swift in Sources */,
 				769290621FCC5F0B00FC585C /* TaskManager.xcdatamodeld in Sources */,
+				76A06AFD1FCD988E002BF43A /* AddNewTaskViewController.swift in Sources */,
 				7692905A1FCC5F0B00FC585C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
