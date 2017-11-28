@@ -85,4 +85,31 @@ class TaskDetailsViewController: UIViewController {
             completion(false)
         }
     }
+    
+    func deleteTask() {
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
+        
+        if let taskDetails = taskDetails {
+            managedContext.delete(taskDetails)
+            print("Deleted task")
+            
+            do {
+                try managedContext.save()
+                print("Successfully removed task!")
+            } catch {
+                print("Could not remove: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    @IBAction func didPressDeleteTaskBtn(_ sender: Any) {
+        
+        let alert = UIAlertController(title: "Do you want to delete the task?", message: "If you delete the current task, the data will disappear", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+            self.deleteTask()
+            self.navigationController?.popViewController(animated: true)
+        }))
+        self.present(alert, animated: true)
+    }
 }

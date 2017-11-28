@@ -151,6 +151,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gxQ-lT-Opa">
+                                <rect key="frame" x="130" y="443" width="115" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Delete task"/>
+                                <connections>
+                                    <action selector="didPressDeleteTaskBtn:" destination="520-jW-5Lc" eventType="touchUpInside" id="BpP-8Z-wFO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="nHy-Ov-88n"/>
@@ -165,7 +173,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rD9-69-Rl0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2206" y="102"/>
+            <point key="canvasLocation" x="2205.5999999999999" y="101.19940029985008"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="36c-bJ-qal">
