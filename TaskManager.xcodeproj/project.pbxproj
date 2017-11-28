@@ -17,6 +17,7 @@
 		769290751FCCDC1200FC585C /* TaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 769290731FCCDC1200FC585C /* TaskCell.xib */; };
 		76A06AFD1FCD988E002BF43A /* AddNewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A06AFC1FCD988E002BF43A /* AddNewTaskViewController.swift */; };
 		76A06AFF1FCDC4D8002BF43A /* TaskDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A06AFE1FCDC4D8002BF43A /* TaskDetailsViewController.swift */; };
+		76A06B011FCE1A66002BF43A /* CheckboxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A06B001FCE1A66002BF43A /* CheckboxButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		769290731FCCDC1200FC585C /* TaskCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskCell.xib; sourceTree = "<group>"; };
 		76A06AFC1FCD988E002BF43A /* AddNewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTaskViewController.swift; sourceTree = "<group>"; };
 		76A06AFE1FCDC4D8002BF43A /* TaskDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsViewController.swift; sourceTree = "<group>"; };
+		76A06B001FCE1A66002BF43A /* CheckboxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 			children = (
 				769290721FCCDC1200FC585C /* TaskCell.swift */,
 				769290731FCCDC1200FC585C /* TaskCell.xib */,
+				76A06B001FCE1A66002BF43A /* CheckboxButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				769290741FCCDC1200FC585C /* TaskCell.swift in Sources */,
+				76A06B011FCE1A66002BF43A /* CheckboxButton.swift in Sources */,
 				769290711FCCCABB00FC585C /* MainViewController.swift in Sources */,
 				769290621FCC5F0B00FC585C /* TaskManager.xcdatamodeld in Sources */,
 				76A06AFD1FCD988E002BF43A /* AddNewTaskViewController.swift in Sources */,

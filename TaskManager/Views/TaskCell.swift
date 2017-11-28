@@ -25,4 +25,7 @@ class TaskCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
     }
+    
+    @IBAction func didPressCompletedTaskBtn(_ sender: Any) {
+    }
 }

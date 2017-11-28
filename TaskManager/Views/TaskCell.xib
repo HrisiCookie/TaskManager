@@ -20,37 +20,53 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZa-7v-XFn">
-                        <rect key="frame" x="10" y="13" width="314" height="20.5"/>
+                        <rect key="frame" x="10" y="13" width="256" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="m8D-4n-oxb">
-                        <rect key="frame" x="10" y="52" width="302" height="27.5"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PZO-lt-zqj">
+                        <rect key="frame" x="10" y="54" width="256" height="20.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Completion date: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MgP-Yg-shC">
-                                <rect key="frame" x="0.0" y="0.0" width="151" height="27.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="140" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="rLn-JN-BO6"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdu-UO-UUx">
-                                <rect key="frame" x="151" y="0.0" width="151" height="27.5"/>
+                                <rect key="frame" x="140" y="0.0" width="116" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                     </stackView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dzf-dj-lSV" customClass="CheckBoxButton" customModule="TaskManager" customModuleProvider="target">
+                        <rect key="frame" x="279" y="26.5" width="35" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="35" id="PZr-Hs-Kob"/>
+                            <constraint firstAttribute="height" constant="35" id="wIL-A6-xsC"/>
+                        </constraints>
+                        <connections>
+                            <action selector="didPressCompletedTaskBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="z4b-Yh-wmf"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="Dzf-dj-lSV" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="6RP-uy-Rag"/>
+                    <constraint firstItem="PZO-lt-zqj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="7go-W1-uhL"/>
                     <constraint firstItem="zZa-7v-XFn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="GM9-OQ-1p9"/>
                     <constraint firstItem="zZa-7v-XFn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="LDc-oB-PKa"/>
-                    <constraint firstAttribute="trailing" secondItem="m8D-4n-oxb" secondAttribute="trailing" constant="10" id="NSR-lM-39b"/>
-                    <constraint firstItem="m8D-4n-oxb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="aLc-Ip-bm6"/>
-                    <constraint firstAttribute="bottom" secondItem="m8D-4n-oxb" secondAttribute="bottom" constant="10" id="mcD-1p-lub"/>
-                    <constraint firstItem="zZa-7v-XFn" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="10" id="tyy-ad-gdw"/>
-                    <constraint firstItem="m8D-4n-oxb" firstAttribute="top" secondItem="zZa-7v-XFn" secondAttribute="bottom" constant="18.5" id="xft-Xc-9ib"/>
+                    <constraint firstAttribute="bottom" secondItem="MgP-Yg-shC" secondAttribute="bottom" constant="15" id="W9J-c7-pJ3"/>
+                    <constraint firstItem="Dzf-dj-lSV" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="dah-lX-S5w"/>
+                    <constraint firstAttribute="trailing" secondItem="PZO-lt-zqj" secondAttribute="trailing" constant="56" id="e0A-hq-IjH"/>
+                    <constraint firstItem="PZO-lt-zqj" firstAttribute="top" secondItem="zZa-7v-XFn" secondAttribute="bottom" constant="20.5" id="k7C-bz-tx0"/>
+                    <constraint firstAttribute="bottom" secondItem="PZO-lt-zqj" secondAttribute="bottom" constant="15" id="nRG-Au-VNh"/>
+                    <constraint firstAttribute="trailing" secondItem="zZa-7v-XFn" secondAttribute="trailing" constant="56" id="zu9-vt-52k"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
