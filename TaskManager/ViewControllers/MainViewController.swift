@@ -20,10 +20,8 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = self
-        tableView.delegate = self
         
-        self.tableView.register(UINib(nibName:"\(TaskCell.self)", bundle: nil), forCellReuseIdentifier: "\(TaskCell.self)")
+        configTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,14 +31,20 @@ class MainViewController: UIViewController {
         tableView.reloadData()
     }
     
-    func fetchCoreDataObjects() {
+    
+    
+    // private methods
+    private func configTableView() {
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        self.tableView.register(UINib(nibName:"\(TaskCell.self)", bundle: nil), forCellReuseIdentifier: "\(TaskCell.self)")
+    }
+    
+    private func fetchCoreDataObjects() {
         self.fetch { (complete) in
             if complete {
-                if tasks.count < 1 {
-                    tableView.isHidden = true
-                } else {
-                    tableView.isHidden = false
-                }
+                tableView.isHidden = tasks.count < 1 ? true : false
             }
         }
     }
@@ -58,6 +62,7 @@ class MainViewController: UIViewController {
     }
 }
 
+// MARK: - UITableViewDataSource, UITableViewDelegate
 extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -71,7 +76,6 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         guard let taskCell = tableView.dequeueReusableCell(withIdentifier: "\(TaskCell.self)", for: indexPath) as? TaskCell else {return UITableViewCell()}
         let currentTask = tasks[indexPath.row]
         
-//        taskCell.configCell(taskTitle: "New task title", completionDate: "23.12.2017")
         taskCell.configCell(taskTitle: currentTask.taskTitle!, completionDate: currentTask.completionDate!)
         
         return taskCell

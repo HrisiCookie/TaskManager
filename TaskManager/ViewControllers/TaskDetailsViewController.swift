@@ -15,6 +15,7 @@ class TaskDetailsViewController: UIViewController {
         case save = "Save"
     }
     
+    // outlets
     @IBOutlet weak var taskNameTextFields: UITextField!
     @IBOutlet weak var categoryTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
@@ -27,6 +28,14 @@ class TaskDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupRightBarButtonItem()
+    
+        taskNameTextFields.text = taskDetails?.taskTitle
+        dateTextField.text = taskDetails?.completionDate
+    }
+    
+    //private methods
+    private func setupRightBarButtonItem() {
         btn1.setTitle(buttonTypeTitle.rawValue, for: .normal)
         btn1.setTitleColor(.black, for: .normal)
         btn1.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
@@ -34,20 +43,9 @@ class TaskDetailsViewController: UIViewController {
         let item1 = UIBarButtonItem(customView: btn1)
         
         self.navigationItem.setRightBarButtonItems([item1], animated: true)
-    
-        taskNameTextFields.text = taskDetails?.taskTitle
-        dateTextField.text = taskDetails?.completionDate
-        
-        // Do any additional setup after loading the view.
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        
-    }
-    
-    @objc func editDetails() {
+
+    @objc private func editDetails() {
         switch buttonTypeTitle {
         case .edit:
             print("Edit pressed")
@@ -70,7 +68,7 @@ class TaskDetailsViewController: UIViewController {
         }
     }
     
-    func saveChanges(completion: (_ finished: Bool) -> ()) {
+    private func saveChanges(completion: (_ finished: Bool) -> ()) {
         guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
 
         taskDetails?.taskTitle = taskNameTextFields.text
@@ -86,7 +84,7 @@ class TaskDetailsViewController: UIViewController {
         }
     }
     
-    func deleteTask() {
+    private func deleteTask() {
         guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
         
         if let taskDetails = taskDetails {
@@ -102,6 +100,7 @@ class TaskDetailsViewController: UIViewController {
         }
     }
     
+    // actions
     @IBAction func didPressDeleteTaskBtn(_ sender: Any) {
         
         let alert = UIAlertController(title: "Do you want to delete the task?", message: "If you delete the current task, the data will disappear", preferredStyle: .alert)

@@ -19,19 +19,24 @@ class AddNewTaskViewController: UIViewController, UITextFieldDelegate {
         
         taskNameTextField.delegate = self
         dateTextField.delegate = self
-        // Do any additional setup after loading the view.
     }
   
     
     @IBAction func didPressAddTaskBtn(_ sender: Any) {
         // Pass data in Core Data Task Model
+        guard let taskName = taskNameTextField.text,
+            let date = dateTextField.text else {return}
         
-        if !(taskNameTextField.text?.isEmpty)! && !(dateTextField.text?.isEmpty)! {
+        if !taskName.isEmpty && !date.isEmpty {
             self.save { (complete) in
                 if complete {
                     dismiss(animated: true, completion: nil)
                 }
             }
+        } else {
+            let alert = UIAlertController(title: "Empty fields!", message: "All fields should be filled in.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true)
         }
         navigationController?.popViewController(animated: true)
     }
@@ -53,5 +58,4 @@ class AddNewTaskViewController: UIViewController, UITextFieldDelegate {
             completion(false)
         }
     }
-    
 }
