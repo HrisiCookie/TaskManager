@@ -99,6 +99,13 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         
         return [deleteAction]
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let taskDetailsVC = storyboard.instantiateViewController(withIdentifier: "\(TaskDetailsViewController.self)") as? TaskDetailsViewController else {return}
+        taskDetailsVC.taskDetails = tasks[indexPath.row]
+        navigationController?.pushViewController(taskDetailsVC, animated: true)
+    }
 }
 
 extension MainViewController {
