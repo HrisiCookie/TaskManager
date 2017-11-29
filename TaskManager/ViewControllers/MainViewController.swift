@@ -126,9 +126,7 @@ extension MainViewController {
         
         // fetch items that are in this entity
         let fetchRequest = NSFetchRequest<Task>(entityName: "Task")
-//        let fetchRetquestForCategory = NSFetchRequest<Category>(entityName: "Category")
         do {
-//            try managedContext.fetch(fetchRetquestForCategory)
             tasks = try managedContext.fetch(fetchRequest)
             print("Tasks array: \(tasks.count)")
             print("Successfully fatched data!")

@@ -13,6 +13,6 @@
     </entity>
     <elements>
         <element name="Category" positionX="243" positionY="-126" width="128" height="88"/>
-        <element name="Task" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="Task" positionX="-63" positionY="-18" width="128" height="105"/>
     </elements>
 </model>

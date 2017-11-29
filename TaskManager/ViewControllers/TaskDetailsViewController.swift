@@ -82,7 +82,7 @@ class TaskDetailsViewController: UIViewController {
         guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
 
         taskDetails?.taskTitle = taskNameTextFields.text
-        taskDetails?.completionDate = dateTextField.text
+//        taskDetails?.completionDate = dateTextField.text
         taskDetails?.category?.name = categoryTextField.text
         taskDetails?.category?.colour = UIColor.stringFromUIColor(color: colourView.backgroundColor!)
         
