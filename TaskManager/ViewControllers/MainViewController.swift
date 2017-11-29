@@ -51,7 +51,8 @@ class MainViewController: UIViewController {
     @IBAction func pressedAddTaskButton(_ sender: Any) {
         print("Pressed add task")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let addNewTaskVC = storyboard.instantiateViewController(withIdentifier: "\(AddNewTaskViewController.self)") as? AddNewTaskViewController else {return}
+        guard let addNewTaskVC = storyboard.instantiateViewController(withIdentifier: "\(TaskDetailsViewController.self)") as? TaskDetailsViewController else {return}
+        addNewTaskVC.typeViewController = .addTaskViewController
         navigationController?.pushViewController(addNewTaskVC, animated: true)
     }
     
@@ -112,6 +113,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let taskDetailsVC = storyboard.instantiateViewController(withIdentifier: "\(TaskDetailsViewController.self)") as? TaskDetailsViewController else {return}
+        taskDetailsVC.typeViewController = .detailsViewController
         taskDetailsVC.taskDetails = tasks[indexPath.row]
         navigationController?.pushViewController(taskDetailsVC, animated: true)
     }

@@ -72,82 +72,6 @@
             </objects>
             <point key="canvasLocation" x="676" y="97.601199400299862"/>
         </scene>
-        <!--Add New Task View Controller-->
-        <scene sceneID="rac-5G-Z9t">
-            <objects>
-                <viewController storyboardIdentifier="AddNewTaskViewController" id="7j6-zA-sj0" customClass="AddNewTaskViewController" customModule="TaskManager" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="AG8-jj-yhO">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M5a-RL-cfa">
-                                <rect key="frame" x="122" y="108" width="177" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e7U-3S-pcs">
-                                <rect key="frame" x="122" y="193" width="177" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A5j-fp-EVP">
-                                <rect key="frame" x="122" y="286" width="177" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Trv-ha-Ixu">
-                                <rect key="frame" x="193" y="363" width="106" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Choose color"/>
-                                <connections>
-                                    <action selector="didPressChooseColorBtn:" destination="7j6-zA-sj0" eventType="touchUpInside" id="Qwd-Ee-7DT"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dyl-6n-pYY">
-                                <rect key="frame" x="38" y="337" width="77" height="82"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ivG-8g-scc">
-                                <rect key="frame" x="0.0" y="401" width="375" height="162"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <date key="date" timeIntervalSinceReferenceDate="533662755.20304698">
-                                    <!--2017-11-29 15:39:15 +0000-->
-                                </date>
-                                <connections>
-                                    <action selector="datePickerAction:" destination="7j6-zA-sj0" eventType="valueChanged" id="4BH-um-T1X"/>
-                                </connections>
-                            </datePicker>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZUr-ul-U5j">
-                                <rect key="frame" x="167" y="574" width="87" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add task"/>
-                                <connections>
-                                    <action selector="didPressAddTaskBtn:" destination="7j6-zA-sj0" eventType="touchUpInside" id="QXe-T4-eEv"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="rpl-73-1ZR"/>
-                    </view>
-                    <connections>
-                        <outlet property="categoryNameTextField" destination="e7U-3S-pcs" id="6Ig-YB-cme"/>
-                        <outlet property="colorView" destination="dyl-6n-pYY" id="KD4-eN-nMw"/>
-                        <outlet property="datePicker" destination="ivG-8g-scc" id="EbE-oa-wb4"/>
-                        <outlet property="dateTextField" destination="A5j-fp-EVP" id="MBC-De-fe7"/>
-                        <outlet property="taskNameTextField" destination="M5a-RL-cfa" id="sYD-kQ-ipU"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mZf-L6-BGW" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1452" y="99.400299850074973"/>
-        </scene>
         <!--Task Details View Controller-->
         <scene sceneID="AGI-vL-g02">
             <objects>
@@ -170,14 +94,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gxQ-lT-Opa">
-                                <rect key="frame" x="130" y="443" width="115" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Delete task"/>
-                                <connections>
-                                    <action selector="didPressDeleteTaskBtn:" destination="520-jW-5Lc" eventType="touchUpInside" id="BpP-8Z-wFO"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mU4-CP-V5R">
                                 <rect key="frame" x="31" y="279" width="58" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -198,6 +114,24 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="AUY-4u-fDa">
+                                <rect key="frame" x="0.0" y="419" width="375" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <date key="date" timeIntervalSinceReferenceDate="533662755.20304698">
+                                    <!--2017-11-29 15:39:15 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="didPressDatePicker:" destination="520-jW-5Lc" eventType="valueChanged" id="sTA-Pl-BHd"/>
+                                </connections>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gxQ-lT-Opa">
+                                <rect key="frame" x="139" y="589" width="115" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Delete task"/>
+                                <connections>
+                                    <action selector="didPressDeleteTaskBtn:" destination="520-jW-5Lc" eventType="touchUpInside" id="BpP-8Z-wFO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="nHy-Ov-88n"/>
@@ -205,16 +139,18 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="addOrDeleteBtn" destination="gxQ-lT-Opa" id="elV-Mf-Xsg"/>
                         <outlet property="categoryTextField" destination="af0-z6-n5W" id="jWW-rW-yew"/>
-                        <outlet property="changeColorBtn" destination="AUI-lK-T5X" id="heF-Y1-XrI"/>
+                        <outlet property="changeColorBtn" destination="AUI-lK-T5X" id="qiX-km-qDx"/>
                         <outlet property="colourView" destination="mU4-CP-V5R" id="vqc-li-LF7"/>
+                        <outlet property="datePicker" destination="AUY-4u-fDa" id="NZz-ix-LNI"/>
                         <outlet property="dateTextField" destination="37f-Fm-ubJ" id="QJZ-pt-Tkd"/>
                         <outlet property="taskNameTextFields" destination="IGg-jk-Tsh" id="dSG-By-FEY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rD9-69-Rl0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2205.5999999999999" y="101.19940029985008"/>
+            <point key="canvasLocation" x="1522" y="98"/>
         </scene>
         <!--Choose Color View Controller-->
         <scene sceneID="BW5-rT-CZB">
@@ -275,7 +211,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ofv-g2-b4L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2952.8000000000002" y="101.19940029985008"/>
+            <point key="canvasLocation" x="2338" y="98"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="36c-bJ-qal">

@@ -17,7 +17,6 @@
 		769290711FCCCABB00FC585C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769290701FCCCABB00FC585C /* MainViewController.swift */; };
 		769290741FCCDC1200FC585C /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769290721FCCDC1200FC585C /* TaskCell.swift */; };
 		769290751FCCDC1200FC585C /* TaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 769290731FCCDC1200FC585C /* TaskCell.xib */; };
-		76A06AFD1FCD988E002BF43A /* AddNewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A06AFC1FCD988E002BF43A /* AddNewTaskViewController.swift */; };
 		76A06AFF1FCDC4D8002BF43A /* TaskDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A06AFE1FCDC4D8002BF43A /* TaskDetailsViewController.swift */; };
 		76A06B011FCE1A66002BF43A /* CheckboxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A06B001FCE1A66002BF43A /* CheckboxButton.swift */; };
 		76A06B121FCEE0AF002BF43A /* Category+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A06B0E1FCEE0AF002BF43A /* Category+CoreDataClass.swift */; };
@@ -25,6 +24,7 @@
 		76A06B141FCEE0AF002BF43A /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A06B101FCEE0AF002BF43A /* Task+CoreDataClass.swift */; };
 		76A06B151FCEE0AF002BF43A /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A06B111FCEE0AF002BF43A /* Task+CoreDataProperties.swift */; };
 		76A06B171FCEE767002BF43A /* ChooseColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A06B161FCEE767002BF43A /* ChooseColorViewController.swift */; };
+		76DAF33E1FCF5C2300D60481 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DAF33D1FCF5C2300D60481 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +40,6 @@
 		769290701FCCCABB00FC585C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		769290721FCCDC1200FC585C /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		769290731FCCDC1200FC585C /* TaskCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskCell.xib; sourceTree = "<group>"; };
-		76A06AFC1FCD988E002BF43A /* AddNewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTaskViewController.swift; sourceTree = "<group>"; };
 		76A06AFE1FCDC4D8002BF43A /* TaskDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsViewController.swift; sourceTree = "<group>"; };
 		76A06B001FCE1A66002BF43A /* CheckboxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxButton.swift; sourceTree = "<group>"; };
 		76A06B0E1FCEE0AF002BF43A /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -48,6 +47,7 @@
 		76A06B101FCEE0AF002BF43A /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = "<group>"; };
 		76A06B111FCEE0AF002BF43A /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		76A06B161FCEE767002BF43A /* ChooseColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseColorViewController.swift; sourceTree = "<group>"; };
+		76DAF33D1FCF5C2300D60481 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,9 +109,9 @@
 			isa = PBXGroup;
 			children = (
 				769290701FCCCABB00FC585C /* MainViewController.swift */,
-				76A06AFC1FCD988E002BF43A /* AddNewTaskViewController.swift */,
 				76A06AFE1FCDC4D8002BF43A /* TaskDetailsViewController.swift */,
 				76A06B161FCEE767002BF43A /* ChooseColorViewController.swift */,
+				76DAF33D1FCF5C2300D60481 /* CoreDataManager.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -203,13 +203,13 @@
 				769290741FCCDC1200FC585C /* TaskCell.swift in Sources */,
 				76A06B131FCEE0AF002BF43A /* Category+CoreDataProperties.swift in Sources */,
 				76A06B121FCEE0AF002BF43A /* Category+CoreDataClass.swift in Sources */,
+				76DAF33E1FCF5C2300D60481 /* CoreDataManager.swift in Sources */,
 				76A06B011FCE1A66002BF43A /* CheckboxButton.swift in Sources */,
 				760CC15F1FCEF87A006845C0 /* UIColor+String.swift in Sources */,
 				76A06B151FCEE0AF002BF43A /* Task+CoreDataProperties.swift in Sources */,
 				769290711FCCCABB00FC585C /* MainViewController.swift in Sources */,
 				769290621FCC5F0B00FC585C /* TaskManager.xcdatamodeld in Sources */,
 				76A06B141FCEE0AF002BF43A /* Task+CoreDataClass.swift in Sources */,
-				76A06AFD1FCD988E002BF43A /* AddNewTaskViewController.swift in Sources */,
 				76A06AFF1FCDC4D8002BF43A /* TaskDetailsViewController.swift in Sources */,
 				76A06B171FCEE767002BF43A /* ChooseColorViewController.swift in Sources */,
 				760CC15C1FCEF405006845C0 /* ColorCell.swift in Sources */,
