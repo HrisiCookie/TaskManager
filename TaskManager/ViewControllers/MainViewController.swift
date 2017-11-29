@@ -31,8 +31,6 @@ class MainViewController: UIViewController {
         tableView.reloadData()
     }
     
-    
-    
     // private methods
     private func configTableView() {
         tableView.dataSource = self
@@ -76,6 +74,13 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         guard let taskCell = tableView.dequeueReusableCell(withIdentifier: "\(TaskCell.self)", for: indexPath) as? TaskCell else {return UITableViewCell()}
         let currentTask = tasks[indexPath.row]
         
+        var backgroundColor: UIColor = .white
+        
+        if tasks[indexPath.row].category?.colour != nil {
+            taskCell.backgroundColor = UIColor.returnUIColor(components: (tasks[indexPath.row].category?.colour)!)
+        } else {
+            taskCell.backgroundColor = backgroundColor
+        }
         taskCell.configCell(taskTitle: currentTask.taskTitle!, completionDate: currentTask.completionDate!)
         
         return taskCell
@@ -121,7 +126,9 @@ extension MainViewController {
         
         // fetch items that are in this entity
         let fetchRequest = NSFetchRequest<Task>(entityName: "Task")
+//        let fetchRetquestForCategory = NSFetchRequest<Category>(entityName: "Category")
         do {
+//            try managedContext.fetch(fetchRetquestForCategory)
             tasks = try managedContext.fetch(fetchRequest)
             print("Tasks array: \(tasks.count)")
             print("Successfully fatched data!")

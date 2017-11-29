@@ -19,6 +19,8 @@ class TaskDetailsViewController: UIViewController {
     @IBOutlet weak var taskNameTextFields: UITextField!
     @IBOutlet weak var categoryTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
+    @IBOutlet weak var colourView: UIView!
+    @IBOutlet weak var changeColorBtn: UIButton!
     
     var taskDetails: Task?
     var buttonTypeTitle: ButtonState = .edit
@@ -29,9 +31,16 @@ class TaskDetailsViewController: UIViewController {
         super.viewDidLoad()
         
         setupRightBarButtonItem()
+        
+        if let categoryColor = taskDetails?.category?.colour {
+            colourView.backgroundColor = UIColor.returnUIColor(components: categoryColor)
+        } else {
+            colourView.backgroundColor = .white
+        }
     
         taskNameTextFields.text = taskDetails?.taskTitle
         dateTextField.text = taskDetails?.completionDate
+        categoryTextField.text = taskDetails?.category?.name
     }
     
     //private methods
@@ -51,6 +60,7 @@ class TaskDetailsViewController: UIViewController {
             print("Edit pressed")
             taskNameTextFields.isUserInteractionEnabled = true
             dateTextField.isUserInteractionEnabled = true
+            changeColorBtn.isUserInteractionEnabled = true
             buttonTypeTitle = .save
             btn1.setTitle(buttonTypeTitle.rawValue, for: .normal)
         case .save:
@@ -73,6 +83,8 @@ class TaskDetailsViewController: UIViewController {
 
         taskDetails?.taskTitle = taskNameTextFields.text
         taskDetails?.completionDate = dateTextField.text
+        taskDetails?.category?.name = categoryTextField.text
+        taskDetails?.category?.colour = UIColor.stringFromUIColor(color: colourView.backgroundColor!)
         
         do {
             try managedContext.save()
@@ -111,4 +123,18 @@ class TaskDetailsViewController: UIViewController {
         }))
         self.present(alert, animated: true)
     }
+    
+    @IBAction func didPressChooseColourBtn(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let chooseColourVC = storyboard.instantiateViewController(withIdentifier: "\(ChooseColorViewController.self)") as? ChooseColorViewController else {return}
+        chooseColourVC.delegate = self
+        navigationController?.pushViewController(chooseColourVC, animated: true)
+    }
 }
+
+extension TaskDetailsViewController: ChooseColorDelegate {
+    func didChooseColor(color: UIColor) {
+        self.colourView.backgroundColor = color
+    }
+}
+
