@@ -25,6 +25,7 @@
 		76A06B151FCEE0AF002BF43A /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A06B111FCEE0AF002BF43A /* Task+CoreDataProperties.swift */; };
 		76A06B171FCEE767002BF43A /* ChooseColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A06B161FCEE767002BF43A /* ChooseColorViewController.swift */; };
 		76DAF33E1FCF5C2300D60481 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DAF33D1FCF5C2300D60481 /* CoreDataManager.swift */; };
+		76DAF3411FCF6ADB00D60481 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DAF3401FCF6ADB00D60481 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		76A06B111FCEE0AF002BF43A /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		76A06B161FCEE767002BF43A /* ChooseColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseColorViewController.swift; sourceTree = "<group>"; };
 		76DAF33D1FCF5C2300D60481 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		76DAF3401FCF6ADB00D60481 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 		769290581FCC5F0B00FC585C /* TaskManager */ = {
 			isa = PBXGroup;
 			children = (
+				76DAF33F1FCF6A7200D60481 /* Utils */,
 				760CC15D1FCEF867006845C0 /* Extensions */,
 				76A06B0E1FCEE0AF002BF43A /* Category+CoreDataClass.swift */,
 				76A06B0F1FCEE0AF002BF43A /* Category+CoreDataProperties.swift */,
@@ -125,6 +128,14 @@
 				760CC15B1FCEF405006845C0 /* ColorCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		76DAF33F1FCF6A7200D60481 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				76DAF3401FCF6ADB00D60481 /* Constants.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,6 +216,7 @@
 				76A06B121FCEE0AF002BF43A /* Category+CoreDataClass.swift in Sources */,
 				76DAF33E1FCF5C2300D60481 /* CoreDataManager.swift in Sources */,
 				76A06B011FCE1A66002BF43A /* CheckboxButton.swift in Sources */,
+				76DAF3411FCF6ADB00D60481 /* Constants.swift in Sources */,
 				760CC15F1FCEF87A006845C0 /* UIColor+String.swift in Sources */,
 				76A06B151FCEE0AF002BF43A /* Task+CoreDataProperties.swift in Sources */,
 				769290711FCCCABB00FC585C /* MainViewController.swift in Sources */,

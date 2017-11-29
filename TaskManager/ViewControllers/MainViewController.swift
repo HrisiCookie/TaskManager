@@ -98,7 +98,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     
     //create editing actions
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let deleteAction = UITableViewRowAction(style: .destructive, title: "DELETE") { (rowAction, indexPath) in
+        let deleteAction = UITableViewRowAction(style: .destructive, title: ButtonTitles.deleteBtn) { (rowAction, indexPath) in
             self.removeTask(atIndexPath: indexPath)
             // the data is changed, so we need to fetch it again
             self.fetchCoreDataObjects()

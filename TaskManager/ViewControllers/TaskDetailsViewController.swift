@@ -57,8 +57,8 @@ class TaskDetailsViewController: UIViewController {
             categoryTextField.text = taskDetails?.category?.name
         } else {
             colourView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-            changeColorBtn.setTitle("Choose color", for: .normal)
-            addOrDeleteBtn.setTitle("Add task", for: .normal)
+            changeColorBtn.setTitle(ButtonTitles.chooseColorBtn, for: .normal)
+            addOrDeleteBtn.setTitle(ButtonTitles.addTask, for: .normal)
             
             taskNameTextFields.isUserInteractionEnabled = true
             categoryTextField.isUserInteractionEnabled = true
@@ -97,10 +97,13 @@ class TaskDetailsViewController: UIViewController {
                 let taskDetails = taskDetails else {return}
             
             if !taskNameText.isEmpty && !dateText.isEmpty {
+                if date == nil {
+                    getDate()
+                }
                 self.coreDataManager.saveChanges(taskDetails: taskDetails, taskName: taskNameText, categoryName: categoryText, categoryColor: backgroundColor, date: date!) { (complete) in
                     if complete {
-                        let alert = UIAlertController(title: "Saved!", message: "Your changes are saved.", preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                        let alert = UIAlertController(title: AlertMessages.savedTitle, message: AlertMessages.savedMessage, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: AlertMessages.okBtn, style: .default, handler: nil))
                         self.present(alert, animated: true)
                     }
                 }
@@ -110,7 +113,7 @@ class TaskDetailsViewController: UIViewController {
     
     private func getDate() {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.dateFormat = "yyyy.MM.dd"
         let strDate = dateFormatter.string(from: datePicker.date)
         date = strDate
         dateTextField.text = strDate
@@ -120,9 +123,9 @@ class TaskDetailsViewController: UIViewController {
     @IBAction func didPressDeleteTaskBtn(_ sender: Any) {
         switch typeViewController {
         case .detailsViewController:
-            let alert = UIAlertController(title: "Do you want to delete the task?", message: "If you delete the current task, the data will disappear", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+            let alert = UIAlertController(title: AlertMessages.deleteTitle, message: AlertMessages.deleteMessage, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: AlertMessages.cancelBtn, style: .default, handler: nil))
+            alert.addAction(UIAlertAction(title: AlertMessages.okBtn, style: .default, handler: { (action) in
                 self.coreDataManager.deleteTask(taskDetails: self.taskDetails!)
                 self.navigationController?.popViewController(animated: true)
             }))
@@ -144,7 +147,7 @@ class TaskDetailsViewController: UIViewController {
                     }
                 }
             } else {
-                let alert = UIAlertController(title: "Empty fields!", message: "All fields should be filled in.", preferredStyle: .alert)
+                let alert = UIAlertController(title: AlertMessages.emptyFieldsTitle, message: AlertMessages.emptyFieldsMessage, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 self.present(alert, animated: true)
             }
