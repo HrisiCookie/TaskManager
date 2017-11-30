@@ -19,6 +19,7 @@ class ColorCell: UICollectionViewCell {
     
     func configureCell(index: Int) {
         colorView.backgroundColor = ChooseColorViewController().categoryColours[index]
+        colorView.makeViewCircle()
     }
     
     func setupView() {

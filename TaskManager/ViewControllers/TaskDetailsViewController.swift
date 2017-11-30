@@ -30,6 +30,7 @@ class TaskDetailsViewController: UIViewController {
     @IBOutlet weak var changeColorBtn: UIButton!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var addOrDeleteBtn: UIButton!
+    @IBOutlet weak var taskNameTextView: UITextView!
     
     var coreDataManager: CoreDataManager = CoreDataManager()
     var typeViewController: TypeViewController = .detailsViewController
@@ -44,6 +45,13 @@ class TaskDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        taskNameTextView.delegate = self
+        self.hideKeyboardWhenTapped()
+        
+        colourView.layer.borderWidth = 2
+        colourView.layer.borderColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        colourView.makeViewCircle()
+        
         if typeViewController == .detailsViewController {
             setupRightBarButtonItem()
             if let categoryColor = taskDetails?.category?.colour {
@@ -53,7 +61,8 @@ class TaskDetailsViewController: UIViewController {
             //            colourView.backgroundColor = .white
             //        }
             
-            taskNameTextFields.text = taskDetails?.taskTitle
+//            taskNameTextFields.text = taskDetails?.taskTitle
+            taskNameTextView.text = taskDetails?.taskTitle
             dateTextField.text = taskDetails?.completionDate
             categoryTextField.text = taskDetails?.category?.name
         } else {
@@ -61,7 +70,8 @@ class TaskDetailsViewController: UIViewController {
             changeColorBtn.setTitle(ButtonTitles.chooseColorBtn, for: .normal)
             addOrDeleteBtn.setTitle(ButtonTitles.addTask, for: .normal)
             
-            taskNameTextFields.isUserInteractionEnabled = true
+//            taskNameTextFields.isUserInteractionEnabled = true
+            taskNameTextView.isUserInteractionEnabled = true
             categoryTextField.isUserInteractionEnabled = true
             changeColorBtn.isUserInteractionEnabled = true
         }
@@ -82,7 +92,8 @@ class TaskDetailsViewController: UIViewController {
         switch buttonTypeTitle {
         case .edit:
             print("Edit pressed")
-            taskNameTextFields.isUserInteractionEnabled = true
+//            taskNameTextFields.isUserInteractionEnabled = true
+            taskNameTextView.isUserInteractionEnabled = true
             dateTextField.isUserInteractionEnabled = true
             changeColorBtn.isUserInteractionEnabled = true
             categoryTextField.isUserInteractionEnabled = true
@@ -91,7 +102,8 @@ class TaskDetailsViewController: UIViewController {
         case .save:
             print("Save pressed")
             
-            guard let taskNameText = taskNameTextFields.text,
+            guard let taskNameText = taskNameTextView.text, //taskNameTextFields.text,
+                taskNameTextView.text != "Next task?",
                 let dateText = dateTextField.text,
                 let categoryText = categoryTextField.text,
                 let backgroundColor = colourView.backgroundColor,
@@ -117,11 +129,12 @@ class TaskDetailsViewController: UIViewController {
         dateFormatter.dateFormat = "yyyy.MM.dd"
         let strDate = dateFormatter.string(from: datePicker.date)
         date = strDate
+        UserDefaults.standard.set(date, forKey: "lastDate")
         dateTextField.text = strDate
     }
     
     private func localNotifications() {
-        if UserDefaults.standard.bool(forKey: "notificationsStatus") == true {
+        if UserDefaults.standard.bool(forKey: UserDefaultsKeys.notificationsStatus) == true {
             let content = UNMutableNotificationContent()
             content.title = "New task to complete!"
             content.body = "You successfully added one more task to complete!"
@@ -146,7 +159,8 @@ class TaskDetailsViewController: UIViewController {
             }))
             self.present(alert, animated: true)
         case .addTaskViewController:
-            guard let taskName = taskNameTextFields.text,
+            guard let taskName = taskNameTextView.text, //taskNameTextFields.text,
+                taskNameTextView.text != "Next task?",
                 let category = categoryTextField.text,
                 let backgroundColor = colourView.backgroundColor
                 else {return}
@@ -181,7 +195,13 @@ class TaskDetailsViewController: UIViewController {
     @IBAction func didPressDatePicker(_ sender: Any) {
         getDate()
     }
-    
+}
+
+extension TaskDetailsViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        taskNameTextView.text = ""
+        taskNameTextView.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+    }
 }
 
 extension TaskDetailsViewController: ChooseColorDelegate {
