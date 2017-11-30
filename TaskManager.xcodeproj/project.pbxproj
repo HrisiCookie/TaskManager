@@ -26,6 +26,7 @@
 		76A06B171FCEE767002BF43A /* ChooseColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A06B161FCEE767002BF43A /* ChooseColorViewController.swift */; };
 		76DAF33E1FCF5C2300D60481 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DAF33D1FCF5C2300D60481 /* CoreDataManager.swift */; };
 		76DAF3411FCF6ADB00D60481 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DAF3401FCF6ADB00D60481 /* Constants.swift */; };
+		76DAF3431FCF892600D60481 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DAF3421FCF892600D60481 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		76A06B161FCEE767002BF43A /* ChooseColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseColorViewController.swift; sourceTree = "<group>"; };
 		76DAF33D1FCF5C2300D60481 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		76DAF3401FCF6ADB00D60481 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		76DAF3421FCF892600D60481 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				76A06AFE1FCDC4D8002BF43A /* TaskDetailsViewController.swift */,
 				76A06B161FCEE767002BF43A /* ChooseColorViewController.swift */,
 				76DAF33D1FCF5C2300D60481 /* CoreDataManager.swift */,
+				76DAF3421FCF892600D60481 /* SettingsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				76A06B011FCE1A66002BF43A /* CheckboxButton.swift in Sources */,
 				76DAF3411FCF6ADB00D60481 /* Constants.swift in Sources */,
 				760CC15F1FCEF87A006845C0 /* UIColor+String.swift in Sources */,
+				76DAF3431FCF892600D60481 /* SettingsViewController.swift in Sources */,
 				76A06B151FCEE0AF002BF43A /* Task+CoreDataProperties.swift in Sources */,
 				769290711FCCCABB00FC585C /* MainViewController.swift in Sources */,
 				769290621FCC5F0B00FC585C /* TaskManager.xcdatamodeld in Sources */,

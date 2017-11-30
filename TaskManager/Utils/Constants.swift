@@ -24,3 +24,7 @@ struct AlertMessages {
     static let emptyFieldsTitle = "Empty fields!"
     static let emptyFieldsMessage = "All fields should be filled in."
 }
+
+struct UserDefaultsKeys {
+    static let notificationsStatus = "notificationsStatus"
+}

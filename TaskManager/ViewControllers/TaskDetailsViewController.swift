@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
 class TaskDetailsViewController: UIViewController {
     
@@ -119,6 +120,20 @@ class TaskDetailsViewController: UIViewController {
         dateTextField.text = strDate
     }
     
+    private func localNotifications() {
+        if UserDefaults.standard.bool(forKey: "notificationsStatus") == true {
+            let content = UNMutableNotificationContent()
+            content.title = "New task to complete!"
+            content.body = "You successfully added one more task to complete!"
+            content.badge = 1
+            
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+            let request = UNNotificationRequest(identifier: "taskAdded", content: content, trigger: trigger)
+            
+            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        }
+    }
+    
     // actions
     @IBAction func didPressDeleteTaskBtn(_ sender: Any) {
         switch typeViewController {
@@ -144,6 +159,7 @@ class TaskDetailsViewController: UIViewController {
                 self.coreDataManager.save(backgroundColor: backgroundColor, date: date!, categoryName: category, taskName: taskName) { (complete) in
                     if complete {
                         dismiss(animated: true, completion: nil)
+                        localNotifications()
                     }
                 }
             } else {

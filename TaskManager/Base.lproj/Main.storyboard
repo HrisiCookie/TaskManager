@@ -213,6 +213,48 @@
             </objects>
             <point key="canvasLocation" x="2338" y="98"/>
         </scene>
+        <!--SETTINGS-->
+        <scene sceneID="UJw-j1-AUA">
+            <objects>
+                <viewController storyboardIdentifier="SettingsViewController" title="SETTINGS" id="51W-QJ-5Ct" customClass="SettingsViewController" customModule="TaskManager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gBM-sm-Exi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="O6B-JL-gq0">
+                                <rect key="frame" x="20" y="60" width="335" height="31"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable/ disable local notificatons" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T57-T0-mMx">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZS5-4T-Loi">
+                                        <rect key="frame" x="286" y="0.0" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="switchButtonChanged:" destination="51W-QJ-5Ct" eventType="valueChanged" id="lHx-iH-eH9"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="O6B-JL-gq0" firstAttribute="leading" secondItem="1YD-6a-CAl" secondAttribute="leading" constant="20" id="MyN-l8-Tbj"/>
+                            <constraint firstItem="O6B-JL-gq0" firstAttribute="top" secondItem="1YD-6a-CAl" secondAttribute="top" constant="40" id="O8L-o2-nOz"/>
+                            <constraint firstItem="1YD-6a-CAl" firstAttribute="trailing" secondItem="O6B-JL-gq0" secondAttribute="trailing" constant="20" id="rhu-uu-f1n"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1YD-6a-CAl"/>
+                    </view>
+                    <connections>
+                        <outlet property="notificationsSwitch" destination="ZS5-4T-Loi" id="ZbI-mZ-7U4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1mo-YS-e6w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3117.5999999999999" y="104.7976011994003"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="36c-bJ-qal">
             <objects>
