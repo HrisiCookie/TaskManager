@@ -10,6 +10,7 @@ import UIKit
 
 class TaskCell: UITableViewCell {
     
+    @IBOutlet weak var categoryColor: UIView!
     @IBOutlet weak var taskTitleLable: UILabel!
     @IBOutlet weak var completionDateLabel: UILabel!
     
@@ -17,9 +18,10 @@ class TaskCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    func configCell(taskTitle: String, completionDate: String) {
+    func configCell(taskTitle: String, completionDate: String, colorString: String) {
         taskTitleLable.text = taskTitle
         completionDateLabel.text = completionDate
+        categoryColor.backgroundColor = UIColor.returnUIColor(components: colorString)
     }
     
     override func prepareForReuse() {

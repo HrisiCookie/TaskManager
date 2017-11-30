@@ -34,8 +34,7 @@ class CoreDataManager {
         guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
         
         managedContext.delete(taskDetails)
-        print("Deleted task")
-            
+        
         do {
             try managedContext.save()
             print("Successfully removed task!")
@@ -58,7 +57,6 @@ class CoreDataManager {
         
         do {
             try managedContext.save()
-            print("Task: \(task)")
             print("Successfully saved data!")
             completion(true)
         } catch {

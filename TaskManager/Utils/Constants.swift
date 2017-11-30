@@ -42,3 +42,8 @@ struct UserDefaultsKeys {
 struct TextViewConstants {
     static let placeholder = "Next task?"
 }
+
+struct ScreenTitles {
+    static let addNewTaskTitle = "ADD NEW TASK"
+    static let taskDetailsTitle = "TASK DETAILS"
+}

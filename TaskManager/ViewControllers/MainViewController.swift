@@ -81,14 +81,18 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         guard let taskCell = tableView.dequeueReusableCell(withIdentifier: "\(TaskCell.self)", for: indexPath) as? TaskCell else {return UITableViewCell()}
         let currentTask = tasks[indexPath.row]
         
-        let backgroundColor: UIColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        var backgroundColor: String
         
         if tasks[indexPath.row].category?.colour != nil {
-            taskCell.backgroundColor = UIColor.returnUIColor(components: (tasks[indexPath.row].category?.colour)!)
+            backgroundColor = (tasks[indexPath.row].category?.colour)!
         } else {
-            taskCell.backgroundColor = backgroundColor
+            backgroundColor = ""
         }
-        taskCell.configCell(taskTitle: currentTask.taskTitle!, completionDate: currentTask.completionDate!)
+        
+        if let taskTitle = currentTask.taskTitle,
+            let completionDate = currentTask.completionDate {
+        taskCell.configCell(taskTitle: taskTitle, completionDate: completionDate, colorString: backgroundColor)
+        }
         
         return taskCell
     }
@@ -136,7 +140,6 @@ extension MainViewController {
         let fetchRequest = NSFetchRequest<Task>(entityName: "Task")
         do {
             tasks = try managedContext.fetch(fetchRequest)
-            print("Tasks array: \(tasks.count)")
             print("Successfully fatched data!")
             completion(true)
         } catch {

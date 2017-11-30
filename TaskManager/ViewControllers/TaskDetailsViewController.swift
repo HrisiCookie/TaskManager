@@ -60,10 +60,12 @@ class TaskDetailsViewController: UIViewController {
             taskNameTextView.text = taskDetails?.taskTitle
             dateTextField.text = taskDetails?.completionDate
             categoryTextField.text = taskDetails?.category?.name
+            self.title = ScreenTitles.taskDetailsTitle
         } else {
             colourView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             changeColorBtn.setTitle(ButtonTitles.chooseColorBtn, for: .normal)
             addOrDeleteBtn.setTitle(ButtonTitles.addTask, for: .normal)
+            self.title = ScreenTitles.addNewTaskTitle
             userInteraction(isEnabled: true)
         }
     }
@@ -125,7 +127,6 @@ class TaskDetailsViewController: UIViewController {
     
     private func addNewTask() {
         guard let taskName = taskNameTextView.text,
-            taskNameTextView.text != TextViewConstants.placeholder,
             let category = categoryTextField.text,
             let backgroundColor = colourView.backgroundColor
             else {return}
