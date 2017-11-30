@@ -54,7 +54,6 @@ class MainViewController: UIViewController {
     
     // actions
     @IBAction func pressedAddTaskButton(_ sender: Any) {
-        print("Pressed add task")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let addNewTaskVC = storyboard.instantiateViewController(withIdentifier: "\(TaskDetailsViewController.self)") as? TaskDetailsViewController else {return}
         addNewTaskVC.typeViewController = .addTaskViewController
@@ -62,7 +61,6 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func pressedSettingsButton(_ sender: Any) {
-        print("Pressed settings")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let settingsVC = storyboard.instantiateViewController(withIdentifier: "\(SettingsViewController.self)") as? SettingsViewController else {return}
         navigationController?.pushViewController(settingsVC, animated: true)
@@ -83,7 +81,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         guard let taskCell = tableView.dequeueReusableCell(withIdentifier: "\(TaskCell.self)", for: indexPath) as? TaskCell else {return UITableViewCell()}
         let currentTask = tasks[indexPath.row]
         
-        var backgroundColor: UIColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        let backgroundColor: UIColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         
         if tasks[indexPath.row].category?.colour != nil {
             taskCell.backgroundColor = UIColor.returnUIColor(components: (tasks[indexPath.row].category?.colour)!)
@@ -101,7 +99,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
-        return .none // doesn't show anything special
+        return .none
     }
     
     //create editing actions

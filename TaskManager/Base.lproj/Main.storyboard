@@ -90,7 +90,7 @@
                                             <constraint firstAttribute="height" constant="61" id="OMK-uJ-LaA"/>
                                         </constraints>
                                         <color key="textColor" red="0.56866671950000003" green="0.56866671950000003" blue="0.56866671950000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tXK-W4-sDt">

@@ -36,4 +36,9 @@ struct Notifications {
 
 struct UserDefaultsKeys {
     static let notificationsStatus = "notificationsStatus"
+    static let lastSavedDate = "lastDate"
+}
+
+struct TextViewConstants {
+    static let placeholder = "Next task?"
 }

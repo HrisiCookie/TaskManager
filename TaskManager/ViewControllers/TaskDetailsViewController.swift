@@ -38,7 +38,6 @@ class TaskDetailsViewController: UIViewController {
     
     var colorToString: String = ""
     var date: String?
-    
     var buttonTypeTitle: ButtonState = .edit
     let btn1 = UIButton(type: .custom)
     
@@ -90,15 +89,12 @@ class TaskDetailsViewController: UIViewController {
     @objc private func editDetails() {
         switch buttonTypeTitle {
         case .edit:
-            print("Edit pressed")
             self.userInteraction(isEnabled: true)
             buttonTypeTitle = .save
             btn1.setTitle(buttonTypeTitle.rawValue, for: .normal)
-        case .save:
-            print("Save pressed")
-            
+        case .save:            
             guard let taskNameText = taskNameTextView.text,
-                taskNameTextView.text != "Next task?",
+                taskNameTextView.text != TextViewConstants.placeholder,
                 let dateText = dateTextField.text,
                 let categoryText = categoryTextField.text,
                 let backgroundColor = colourView.backgroundColor,
@@ -129,7 +125,7 @@ class TaskDetailsViewController: UIViewController {
     
     private func addNewTask() {
         guard let taskName = taskNameTextView.text,
-            taskNameTextView.text != "Next task?",
+            taskNameTextView.text != TextViewConstants.placeholder,
             let category = categoryTextField.text,
             let backgroundColor = colourView.backgroundColor
             else {return}
@@ -156,7 +152,7 @@ class TaskDetailsViewController: UIViewController {
         dateFormatter.dateFormat = "yyyy.MM.dd"
         let strDate = dateFormatter.string(from: datePicker.date)
         date = strDate
-        UserDefaults.standard.set(date, forKey: "lastDate")
+        UserDefaults.standard.set(date, forKey: UserDefaultsKeys.lastSavedDate)
         dateTextField.text = strDate
     }
     

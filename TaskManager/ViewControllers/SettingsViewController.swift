@@ -25,7 +25,6 @@ class SettingsViewController: UIViewController {
                 self.defaults.set(true, forKey: UserDefaultsKeys.notificationsStatus)
             }
             
-            print("Switch state: \(self.defaults.bool(forKey: UserDefaultsKeys.notificationsStatus))")
             DispatchQueue.main.async {
                 self.notificationsSwitch.isOn = self.defaults.bool(forKey: UserDefaultsKeys.notificationsStatus)
             }
@@ -39,7 +38,6 @@ class SettingsViewController: UIViewController {
                 case .notDetermined, .denied:
                     self.requsetNotificationAlert()
                 case .authorized:
-                    print("Notification")
                     self.defaults.set(true, forKey: UserDefaultsKeys.notificationsStatus)
                 }
             })
@@ -56,17 +54,12 @@ class SettingsViewController: UIViewController {
     }
     
     func requsetNotificationAlert() {
-        let alert = UIAlertController(title: AlertMessages.requestNotificationsTitle, message: AlertMessages.requestNotificationsMessage, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: AlertMessages.cancelBtn, style: .default, handler: nil)
-        let settingsAction = UIAlertAction(title: AlertMessages.settingsBtn, style: .default) { (_) in
-            if let settingsUrl = URL(string: UIApplicationOpenSettingsURLString),
-                UIApplication.shared.canOpenURL(settingsUrl) {
-                UIApplication.shared.open(settingsUrl, options: [:], completionHandler: nil)
-            }
-        }
-        alert.addAction(cancelAction)
-        alert.addAction(settingsAction)
-        present(alert, animated: true, completion: nil)
+        self.createAlert(title: AlertMessages.requestNotificationsTitle, message: AlertMessages.requestNotificationsMessage, actionTitles: [AlertMessages.cancelBtn, AlertMessages.settingsBtn], actions: [{ (_) in }, { (okAction) in
+                if let settingsUrl = URL(string: UIApplicationOpenSettingsURLString),
+                    UIApplication.shared.canOpenURL(settingsUrl) {
+                    UIApplication.shared.open(settingsUrl, options: [:], completionHandler: nil)
+                }
+                }])
     }
     
     
