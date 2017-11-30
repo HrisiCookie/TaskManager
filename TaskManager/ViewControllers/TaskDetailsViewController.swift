@@ -23,7 +23,6 @@ class TaskDetailsViewController: UIViewController {
     }
     
     // outlets
-    @IBOutlet weak var taskNameTextFields: UITextField!
     @IBOutlet weak var categoryTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var colourView: UIView!
@@ -58,9 +57,6 @@ class TaskDetailsViewController: UIViewController {
             if let categoryColor = taskDetails?.category?.colour {
                 colourView.backgroundColor = UIColor.returnUIColor(components: categoryColor)
             }
-            //        } else {
-            //            colourView.backgroundColor = .white
-            //        }
             
             taskNameTextView.text = taskDetails?.taskTitle
             dateTextField.text = taskDetails?.completionDate
@@ -108,15 +104,18 @@ class TaskDetailsViewController: UIViewController {
                 let backgroundColor = colourView.backgroundColor,
                 let taskDetails = taskDetails else {return}
             
-            if !taskNameText.isEmpty && !dateText.isEmpty {
+            if !taskNameText.isEmpty && !dateText.isEmpty && !categoryText.isEmpty {
                 if date == nil {
                     getDate()
                 }
+                
                 self.coreDataManager.saveChanges(taskDetails: taskDetails, taskName: taskNameText, categoryName: categoryText, categoryColor: backgroundColor, date: date!) { (complete) in
                     if complete {
                         self.createAlert(title: AlertMessages.savedTitle, message: AlertMessages.savedMessage, actionTitles: [AlertMessages.okBtn], actions: [{ (_) in }])
                     }
                 }
+            } else {
+                self.createAlert(title: AlertMessages.emptyFieldsTitle, message: AlertMessages.emptyFieldsMessage, actionTitles: [AlertMessages.okBtn], actions: [{ (_) in }])
             }
         }
     }

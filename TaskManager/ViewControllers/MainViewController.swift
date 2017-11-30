@@ -37,6 +37,11 @@ class MainViewController: UIViewController {
         tableView.delegate = self
         
         self.tableView.register(UINib(nibName:"\(TaskCell.self)", bundle: nil), forCellReuseIdentifier: "\(TaskCell.self)")
+        
+        tableView.estimatedRowHeight = 90
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
+        tableView.tableFooterView = UIView()
     }
     
     private func fetchCoreDataObjects() {
