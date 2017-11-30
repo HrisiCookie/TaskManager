@@ -19,10 +19,13 @@ struct AlertMessages {
     static let savedMessage = "Your changes are saved."
     static let okBtn = "OK"
     static let cancelBtn = "Cancel"
+    static let settingsBtn = "Settings"
     static let deleteTitle = "Do you want to delete the task?"
     static let deleteMessage = "If you delete the current task, the data will disappear"
     static let emptyFieldsTitle = "Empty fields!"
     static let emptyFieldsMessage = "All fields should be filled in."
+    static let requestNotificationsTitle = "Do you want to receive notifications?"
+    static let requestNotificationsMessage = "If you want to receive notifications, go to Settings."
 }
 
 struct UserDefaultsKeys {
