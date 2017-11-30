@@ -62,7 +62,6 @@ class TaskDetailsViewController: UIViewController {
             //            colourView.backgroundColor = .white
             //        }
             
-//            taskNameTextFields.text = taskDetails?.taskTitle
             taskNameTextView.text = taskDetails?.taskTitle
             dateTextField.text = taskDetails?.completionDate
             categoryTextField.text = taskDetails?.category?.name
@@ -70,15 +69,18 @@ class TaskDetailsViewController: UIViewController {
             colourView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             changeColorBtn.setTitle(ButtonTitles.chooseColorBtn, for: .normal)
             addOrDeleteBtn.setTitle(ButtonTitles.addTask, for: .normal)
-            
-//            taskNameTextFields.isUserInteractionEnabled = true
-            taskNameTextView.isUserInteractionEnabled = true
-            categoryTextField.isUserInteractionEnabled = true
-            changeColorBtn.isUserInteractionEnabled = true
+            userInteraction(isEnabled: true)
         }
     }
     
     //private methods
+    private func userInteraction(isEnabled: Bool) {
+        taskNameTextView.isUserInteractionEnabled = isEnabled
+        categoryTextField.isUserInteractionEnabled = isEnabled
+        changeColorBtn.isUserInteractionEnabled = isEnabled
+        datePicker.isUserInteractionEnabled = isEnabled
+    }
+    
     private func setupRightBarButtonItem() {
         btn1.setTitle(buttonTypeTitle.rawValue, for: .normal)
         btn1.setTitleColor(.black, for: .normal)
@@ -93,17 +95,13 @@ class TaskDetailsViewController: UIViewController {
         switch buttonTypeTitle {
         case .edit:
             print("Edit pressed")
-//            taskNameTextFields.isUserInteractionEnabled = true
-            taskNameTextView.isUserInteractionEnabled = true
-            dateTextField.isUserInteractionEnabled = true
-            changeColorBtn.isUserInteractionEnabled = true
-            categoryTextField.isUserInteractionEnabled = true
+            self.userInteraction(isEnabled: true)
             buttonTypeTitle = .save
             btn1.setTitle(buttonTypeTitle.rawValue, for: .normal)
         case .save:
             print("Save pressed")
             
-            guard let taskNameText = taskNameTextView.text, //taskNameTextFields.text,
+            guard let taskNameText = taskNameTextView.text,
                 taskNameTextView.text != "Next task?",
                 let dateText = dateTextField.text,
                 let categoryText = categoryTextField.text,
@@ -116,13 +114,42 @@ class TaskDetailsViewController: UIViewController {
                 }
                 self.coreDataManager.saveChanges(taskDetails: taskDetails, taskName: taskNameText, categoryName: categoryText, categoryColor: backgroundColor, date: date!) { (complete) in
                     if complete {
-                        let alert = UIAlertController(title: AlertMessages.savedTitle, message: AlertMessages.savedMessage, preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: AlertMessages.okBtn, style: .default, handler: nil))
-                        self.present(alert, animated: true)
+                        self.createAlert(title: AlertMessages.savedTitle, message: AlertMessages.savedMessage, actionTitles: [AlertMessages.okBtn], actions: [{ (_) in }])
                     }
                 }
             }
         }
+    }
+    
+    private func deleteCurrentTask() {
+        self.createAlert(title: AlertMessages.deleteTitle, message: AlertMessages.deleteMessage, actionTitles: [AlertMessages.cancelBtn, AlertMessages.okBtn], actions: [{ (_) in }, { (okAction) in
+            self.coreDataManager.deleteTask(taskDetails: self.taskDetails!)
+            self.navigationController?.popViewController(animated: true)
+            }])
+    }
+    
+    private func addNewTask() {
+        guard let taskName = taskNameTextView.text,
+            taskNameTextView.text != "Next task?",
+            let category = categoryTextField.text,
+            let backgroundColor = colourView.backgroundColor
+            else {return}
+        
+        if date == nil {
+            getDate()
+        }
+        
+        if !taskName.isEmpty && !category.isEmpty {
+            self.coreDataManager.save(backgroundColor: backgroundColor, date: date!, categoryName: category, taskName: taskName) { (complete) in
+                if complete {
+                    dismiss(animated: true, completion: nil)
+                    self.notificationsManager.createLocalNotifications()
+                }
+            }
+        } else {
+            self.createAlert(title: AlertMessages.emptyFieldsTitle, message: AlertMessages.emptyFieldsMessage, actionTitles: [AlertMessages.okBtn], actions: [{ (_) in }])
+        }
+        navigationController?.popViewController(animated: true)
     }
     
     private func getDate() {
@@ -138,40 +165,12 @@ class TaskDetailsViewController: UIViewController {
     @IBAction func didPressDeleteTaskBtn(_ sender: Any) {
         switch typeViewController {
         case .detailsViewController:
-            let alert = UIAlertController(title: AlertMessages.deleteTitle, message: AlertMessages.deleteMessage, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: AlertMessages.cancelBtn, style: .default, handler: nil))
-            alert.addAction(UIAlertAction(title: AlertMessages.okBtn, style: .default, handler: { (action) in
-                self.coreDataManager.deleteTask(taskDetails: self.taskDetails!)
-                self.navigationController?.popViewController(animated: true)
-            }))
-            self.present(alert, animated: true)
+            deleteCurrentTask()
         case .addTaskViewController:
-            guard let taskName = taskNameTextView.text, //taskNameTextFields.text,
-                taskNameTextView.text != "Next task?",
-                let category = categoryTextField.text,
-                let backgroundColor = colourView.backgroundColor
-                else {return}
-            
-            if date == nil {
-                getDate()
-            }
-            
-            if !taskName.isEmpty && !category.isEmpty {
-                self.coreDataManager.save(backgroundColor: backgroundColor, date: date!, categoryName: category, taskName: taskName) { (complete) in
-                    if complete {
-                        dismiss(animated: true, completion: nil)
-                        self.notificationsManager.createLocalNotifications()
-                    }
-                }
-            } else {
-                let alert = UIAlertController(title: AlertMessages.emptyFieldsTitle, message: AlertMessages.emptyFieldsMessage, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                self.present(alert, animated: true)
-            }
-            navigationController?.popViewController(animated: true)
+            addNewTask()
         }
     }
-    
+        
     @IBAction func didPressChooseColourBtn(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let chooseColourVC = storyboard.instantiateViewController(withIdentifier: "\(ChooseColorViewController.self)") as? ChooseColorViewController else {return}
@@ -196,4 +195,3 @@ extension TaskDetailsViewController: ChooseColorDelegate {
         self.colourView.backgroundColor = color
     }
 }
-

@@ -37,7 +37,7 @@ class SettingsViewController: UIViewController {
             UNUserNotificationCenter.current().getNotificationSettings(completionHandler: { (notificationSettings) in
                 switch notificationSettings.authorizationStatus {
                 case .notDetermined, .denied:
-                    self.requsetNotificationAler()
+                    self.requsetNotificationAlert()
                 case .authorized:
                     print("Notification")
                     self.defaults.set(true, forKey: UserDefaultsKeys.notificationsStatus)
@@ -68,4 +68,6 @@ class SettingsViewController: UIViewController {
         alert.addAction(settingsAction)
         present(alert, animated: true, completion: nil)
     }
+    
+    
 }

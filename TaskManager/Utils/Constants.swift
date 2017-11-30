@@ -9,9 +9,9 @@
 import Foundation
 
 struct ButtonTitles {
-    static let deleteBtn = "DELETE"
+    static let deleteBtn = "DELETE TASK"
     static let chooseColorBtn = "Choose color"
-    static let addTask = "Add task"
+    static let addTask = "ADD TASK"
 }
 
 struct AlertMessages {
@@ -26,6 +26,12 @@ struct AlertMessages {
     static let emptyFieldsMessage = "All fields should be filled in."
     static let requestNotificationsTitle = "Do you want to receive notifications?"
     static let requestNotificationsMessage = "If you want to receive notifications, go to Settings."
+}
+
+struct Notifications {
+    static let title = "New task to complete!"
+    static let body = "You successfully added one more task to complete!"
+    static let identifier = "taskAdded"
 }
 
 struct UserDefaultsKeys {

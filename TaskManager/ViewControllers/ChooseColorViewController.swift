@@ -25,8 +25,6 @@ class ChooseColorViewController: UIViewController {
         
         collectionView.delegate = self
         collectionView.dataSource = self
-
-        // Do any additional setup after loading the view.
     }
 }
 
